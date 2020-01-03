@@ -1,10 +1,9 @@
-'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Diary = sequelize.define('Diary', {
     name: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: DataTypes.INTEGER,
   }, {});
-  Diary.associate = function(models) {
+  Diary.associate = (models) => {
     // associations can be defined here
     Diary.hasMany(models.Record, {
       foreignKey: 'diaryId',
@@ -12,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     Diary.belongsTo(models.User, {
       as: 'user',
-    })
+    });
   };
   return Diary;
 };
