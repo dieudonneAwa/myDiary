@@ -3,16 +3,16 @@ import jwt from 'jsonwebtoken';
 
 config();
 
-export const createToken = (payload) => {
-  const token = jwt.sign(payload, process.env.JWT_SECRET, {
-    expiresIn: '192h',
-  });
-  return token;
-};
+export const createToken = ({ id, name, email }) => jwt.sign(
+  { id, name, email },
+  process.env.JWT_SECRET, {
+    expiresIn: '48h',
+  },
+);
 
-export const verifyToken = (token) => {
-  const decoded = jwt.verify(token, process.env.JWT_SECRET, {
-    expiresIn: '192h',
-  });
-  return decoded;
-};
+export const verifyToken = (token) => jwt.verify(
+  token,
+  process.env.JWT_SECRET, {
+    expiresIn: '48h',
+  },
+);
