@@ -1,0 +1,27 @@
+{
+  "name": "mydiary",
+  "version": "1.0.0",
+  "description": "My Journaling app",
+  "main": "app.js",
+  "scripts": {
+    "db:migrate": "sequelize db:migrate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dieudonneAwa/myDiary.git"
+  },
+  "author": "Dieudonne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dieudonneAwa/myDiary/issues"
+  },
+  "homepage": "https://github.com/dieudonneAwa/myDiary#readme",
+  "devDependencies": {
+    "pg": "^7.17.0",
+    "sequelize": "^5.21.3"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "sequelize-cli": "^5.5.1"
+  }
+}
