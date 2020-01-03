@@ -4,17 +4,19 @@
   "description": "My Journaling app",
   "main": "index.js",
   "scripts": {
-    "db:migrate": "sequelize db:migrate",
+    "db:migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
     "start": "node build/index.js",
     "lint": "eslint --fix --ignore-path .gitignore .",
     "build": "rm -rf build && mkdir build && babel api --out-dir build",
     "dev": "nodemon --exec babel-node api/index.js",
+    "pretest": "cross-env NODE_ENV=test npm run db:migrate",
     "test": "cross-env NODE_ENV=test nyc mocha --require @babel/register ./test/*.test.js --exit || true"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
     "@babel/node": "^7.7.7",
+    "@babel/plugin-transform-runtime": "^7.7.6",
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
     "@babel/register": "^7.7.7",
@@ -32,6 +34,7 @@
     "pg": "^7.17.0"
   },
   "dependencies": {
+    "@babel/runtime": "^7.7.7",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -51,5 +54,8 @@
   "bugs": {
     "url": "https://github.com/dieudonneAwa/myDiary/issues"
   },
-  "homepage": "https://github.com/dieudonneAwa/myDiary#readme"
+  "homepage": "https://github.com/dieudonneAwa/myDiary#readme",
+  "nyc": {
+    "check-coverage": true
+  }
 }
