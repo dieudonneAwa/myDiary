@@ -1,5 +1,5 @@
-import Auth from "../middlewares/Auth";
-import AuthController from "../controllers/AuthController";
+import Auth from '../middlewares/Auth';
+import AuthController from '../controllers/AuthController';
 
 const routes = (app) => {
   app.get('/', (req, res) => {
