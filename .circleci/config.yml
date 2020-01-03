@@ -1,0 +1,28 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/myDiary
+    docker:
+      - image: circleci/node:12.13.0
+        environment:
+          NODE_ENV: test
+          DATABASE_URL_TEST: postgresql://postgres@localhost/circle_test
+      - image: circleci/postgres:10
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run: npm install
+      - run: npm run db:migrate
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: npm test
