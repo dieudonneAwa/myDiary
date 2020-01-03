@@ -15,4 +15,4 @@ module.exports = {
     use_env_variable: 'DATABASE_URL_PROD',
     dialect: 'postgres',
   },
-}
+};
