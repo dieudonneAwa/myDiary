@@ -7,7 +7,8 @@
     "db:migrate": "sequelize db:migrate",
     "lint": "eslint --fix --ignore-path .gitignore .",
     "build": "babel api --out-dir build",
-    "dev": "nodemon --exec babel-node api/index.js"
+    "dev": "nodemon --exec babel-node api/index.js",
+    "test": "cross-env NODE_ENV=test nyc mocha --no-timeout --exit"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.7",
@@ -17,10 +18,16 @@
     "@babel/preset-react": "^7.7.4",
     "@babel/register": "^7.7.7",
     "babel-eslint": "^10.0.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "coveralls": "^3.0.9",
+    "cross-env": "^6.0.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-react": "^7.17.0",
+    "mocha": "^6.2.2",
+    "nyc": "^15.0.0",
     "pg": "^7.17.0",
     "sequelize": "^5.21.3"
   },
