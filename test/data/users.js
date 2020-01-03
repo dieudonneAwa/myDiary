@@ -2,7 +2,7 @@ export const data = {
   user1: {
     id: 1,
     name: 'user1 name',
-    email: 'user1@e.com',
+    email: 'user1@gmail.com',
     password: 'password',
   },
   user2: {
