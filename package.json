@@ -2,9 +2,35 @@
   "name": "mydiary",
   "version": "1.0.0",
   "description": "My Journaling app",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "db:migrate": "sequelize db:migrate"
+    "db:migrate": "sequelize db:migrate",
+    "lint": "eslint --fix --ignore-path .gitignore .",
+    "build": "babel api --out-dir build",
+    "dev": "nodemon --exec babel-node api/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "@babel/register": "^7.7.7",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-react": "^7.17.0",
+    "pg": "^7.17.0",
+    "sequelize": "^5.21.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "sequelize-cli": "^5.5.1"
   },
   "repository": {
     "type": "git",
@@ -15,18 +41,5 @@
   "bugs": {
     "url": "https://github.com/dieudonneAwa/myDiary/issues"
   },
-  "homepage": "https://github.com/dieudonneAwa/myDiary#readme",
-  "devDependencies": {
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-react": "^7.17.0",
-    "pg": "^7.17.0",
-    "sequelize": "^5.21.3"
-  },
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "sequelize-cli": "^5.5.1"
-  }
+  "homepage": "https://github.com/dieudonneAwa/myDiary#readme"
 }
