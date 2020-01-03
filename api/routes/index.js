@@ -7,6 +7,7 @@ const routes = (app) => {
   });
 
   app.post('/api/v1/auth/sign_up', Auth.validateSignUp, AuthController.signUp);
+  app.post('/api/v1/auth/sign_in', AuthController.signIn);
 };
 
 export default routes;

@@ -13,8 +13,8 @@ class UserRepo {
    */
   static async createUser({ name, email, password }) {
     try {
-      const { dataValues } = await User.create({ name, email, password });
-      return dataValues;
+      const data = await User.create({ name, email, password });
+      return data;
     } catch (e) {
       throw new Error(e);
     }
@@ -27,8 +27,8 @@ class UserRepo {
    */
   static async getByEmail(email) {
     try {
-      const user = await User.findOne({ where: { email } });
-      return user;
+      const data = await User.findOne({ where: { email } });
+      return data;
     } catch (e) {
       throw new Error(e);
     }
