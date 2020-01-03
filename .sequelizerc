@@ -4,5 +4,5 @@ module.exports = {
   "config": path.resolve('./api/database/config', 'config.js'), 
   "models-path": path.resolve('./api/database/models'),
   "seeders-path": path.resolve('./api/database/seeders'), 
-  "migrations-path": path.resolve('./api/database/migrations')
+  "migrations-path": path.resolve('./api/database/migrations') 
 };

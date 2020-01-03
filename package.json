@@ -4,7 +4,7 @@
   "description": "My Journaling app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db:migrate": "sequelize db:migrate"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dieudonneAwa/myDiary#readme",
   "devDependencies": {
+    "pg": "^7.17.0",
     "sequelize": "^5.21.3"
   },
   "dependencies": {

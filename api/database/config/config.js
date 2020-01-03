@@ -2,17 +2,17 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    database: 'todo-dev',
+    database: 'mydiary-dev',
     use_env_variables: 'DATABASE_URL_DEV',
     dialect: 'postgres',
   },
   test: {
-    database: 'todo-test',
+    database: 'mydiary-test',
     use_env_variables: 'DATABASE_URL_TEST',
     dialect: 'postgres',
   },
   production: {
-    database: 'todo-prod',
+    database: 'mydiary-prod',
     use_env_variables: 'DATABASE_URL_PROD',
     dialect: 'postgres',
   },
