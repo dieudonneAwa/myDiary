@@ -5,7 +5,7 @@ class DiaryController {
     try {
       const { name, description } = body;
       const diary = await DiaryRepo.create({ name, description, userId: user.id });
-      return res.status(201).send({ status: 'success', data: diary.dataValues });
+      return res.status(201).send({ status: 'success', data: { diary: diary.dataValues } });
     } catch (e) {
       return next(new Error(e));
     }
