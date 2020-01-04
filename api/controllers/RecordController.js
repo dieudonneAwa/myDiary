@@ -13,6 +13,20 @@ class RecordController {
     }
   }
 
+  static async getRecord({ params, user }, res, next) {
+    try {
+      const recordId = parseInt(params.recordId, 10);
+      const diaryId = parseInt(params.diaryId, 10);
+      const record = await RecordRepo.getOne(recordId, diaryId, user.id);
+      if (!record) {
+        return res.status(400).send({ status: 'error', error: 'Invalid diaryId' });
+      }
+      return res.status(200).send({ status: 'success', data: { record } });
+    } catch (e) {
+      return next(new Error(e));
+    }
+  }
+
   static async getRecords({ params }, res, next) {
     try {
       const records = await RecordRepo.getAll(params.diaryId);
