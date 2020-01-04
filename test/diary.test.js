@@ -34,6 +34,30 @@ describe('Diary', () => {
         done();
       });
   });
+  it('should fetch all diaries', (done) => {
+    chai.request(app)
+      .get('/api/v1/diaries')
+      .set('Authorization', `Bearer ${token}`)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body).to.have.property('data');
+        expect(res.body.status).eql('success');
+        expect(res.body.data).to.be.an('object');
+        done();
+      });
+  });
+  it('should fetch a diary', (done) => {
+    chai.request(app)
+      .get(`/api/v1/diaries/${1}`)
+      .set('Authorization', `Bearer ${token}`)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body).to.have.property('data');
+        expect(res.body.status).eql('success');
+        expect(res.body.data).to.be.an('object');
+        done();
+      });
+  });
   it('should fail create a diary is name is not provided', (done) => {
     chai.request(app)
       .post('/api/v1/diaries')

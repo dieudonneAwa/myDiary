@@ -20,6 +20,7 @@ const routes = (app) => {
 
   app.post('/api/v1/diaries/:diaryId/records', authorize, Record.validateCreate, RecordController.createRecord);
   app.get('/api/v1/diaries/:diaryId/records', authorize, RecordController.getRecords);
+  app.get('/api/v1/diaries/:diaryId/records/:recordId', authorize, RecordController.getRecord);
 };
 
 export default routes;

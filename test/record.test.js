@@ -34,4 +34,28 @@ describe('Records', () => {
         done();
       });
   });
+  it('should fetch all records in a diary', (done) => {
+    chai.request(app)
+      .get(`/api/v1/diaries/${1}/records`)
+      .set('Authorization', `Bearer ${token}`)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body).to.have.property('data');
+        expect(res.body.status).eql('success');
+        expect(res.body.data).to.be.an('object');
+        done();
+      });
+  });
+  it('should fetch a record', (done) => {
+    chai.request(app)
+      .get(`/api/v1/diaries/${1}/records/${1}`)
+      .set('Authorization', `Bearer ${token}`)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body).to.have.property('data');
+        expect(res.body.status).eql('success');
+        expect(res.body.data).to.be.an('object');
+        done();
+      });
+  });
 });
