@@ -20,9 +20,9 @@ class DiaryController {
     }
   }
 
-  static async getDiary({ params }, res, next) {
+  static async getDiary({ params, user }, res, next) {
     try {
-      const diary = await DiaryRepo.getOne(params.diaryId);
+      const diary = await DiaryRepo.getOne(params.diaryId, user.id);
       if (!diary) {
         return res.status(400).send({ status: 'error', error: 'Invalid diaryId' });
       }
