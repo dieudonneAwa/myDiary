@@ -31,9 +31,9 @@
     "eslint-plugin-react": "^7.17.0",
     "mocha": "^6.2.2",
     "nyc": "^15.0.0",
-    "pg": "^7.17.0"
   },
   "dependencies": {
+    "pg": "^7.17.0",
     "@babel/runtime": "^7.7.7",
     "bcrypt": "*",
     "bcryptjs": "^2.4.3",
