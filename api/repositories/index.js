@@ -1,3 +1,4 @@
 import UserRepo from './UserRepo';
+import DiaryRepo from './DiaryRepo';
 
-export { UserRepo };
+export { UserRepo, DiaryRepo };
