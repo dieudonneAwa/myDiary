@@ -1,4 +1,4 @@
-import { DiaryRepo } from "../repositories";
+import { DiaryRepo } from '../repositories';
 
 class DiaryController {
   static async creatDiary({ body, user }, res, next) {

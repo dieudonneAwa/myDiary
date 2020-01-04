@@ -39,8 +39,8 @@ describe('Auth Test', () => {
   describe('Sign In', () => {
     before('Seed data', (done) => {
       chai.request(app)
-        .post('/api/v1/auth/sign_in')
-        .send(user2)
+        .post('/api/v1/auth/sign_up')
+        .send(user1)
         .end((err, res) => {
           done();
         });

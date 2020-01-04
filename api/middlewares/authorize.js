@@ -1,5 +1,5 @@
-import { verifyToken } from "../modules/jwt";
-import { UserRepo } from "../repositories";
+import { verifyToken } from '../modules/jwt';
+import { UserRepo } from '../repositories';
 
 export default async (req, res, next) => {
   const rawToken = req.headers.authorization
