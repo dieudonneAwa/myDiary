@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "My Journaling app",
   "main": "index.js",
+  "engines": {
+    "node": "12.13.0"
+  },
   "scripts": {
     "db:migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
     "start": "node build/index.js",
