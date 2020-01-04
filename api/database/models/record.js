@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Record.belongsTo(models.Diary, {
       as: 'diary',
+      foreignKey: 'diaryId',
     });
   };
   return Record;

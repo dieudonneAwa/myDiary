@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     Diary.belongsTo(models.User, {
       as: 'user',
+      foreignKey: 'userId',
     });
   };
   return Diary;
