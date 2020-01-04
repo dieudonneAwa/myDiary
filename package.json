@@ -10,7 +10,7 @@
     "db:migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
     "start": "node build/index.js",
     "lint": "eslint --fix --ignore-path .gitignore .",
-    "build": "npm run db:migrate && rm -rf build && mkdir build && babel api --out-dir build",
+    "build": "rm -rf build && mkdir build && babel api --out-dir build && npm run db:migrate",
     "dev": "nodemon --exec babel-node api/index.js",
     "pretest": "cross-env NODE_ENV=test npm run db:migrate",
     "test": "cross-env NODE_ENV=test nyc mocha --no-timeout --require @babel/register ./test/*.test.js --exit || true"
