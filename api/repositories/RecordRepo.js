@@ -16,6 +16,24 @@ class RecordRepo {
     }
   }
 
+  static async getOne(recordId, diaryId, userId) {
+    try {
+      const data = await Record.findOne({
+        where: { id: recordId, diaryId },
+        include: [{
+          model: Diary,
+          as: 'diary',
+          where: { userId },
+          required: false,
+          attributes: ['id', 'name', 'userId'],
+        }],
+      });
+      return data;
+    } catch (e) {
+      throw new Error(e);
+    }
+  }
+
   static async getAll(diaryId) {
     try {
       const records = await Record.findAll({

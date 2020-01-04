@@ -12,9 +12,20 @@ class DiaryRepo {
     }
   }
 
-  static async getOne(id) {
+  static async getOne(id, userId) {
     try {
-      const data = await Diary.findOne({
+      if (userId) {
+        const data = await Diary.findOne({
+          where: { id, userId },
+          include: [{
+            model: Record,
+            as: 'records',
+            attributes: ['id', 'title', 'text', 'location', 'diaryId'],
+          }],
+        });
+        return data;
+      }
+      return await Diary.findOne({
         where: { id },
         include: [{
           model: Record,
@@ -22,7 +33,6 @@ class DiaryRepo {
           attributes: ['id', 'title', 'text', 'location', 'diaryId'],
         }],
       });
-      return data;
     } catch (e) {
       throw new Error(e);
     }
