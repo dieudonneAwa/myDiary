@@ -1,6 +1,6 @@
 import models from '../database/models';
 
-const { User } = models;
+const { User, Diary, Record } = models;
 
 /**
  * @class UserRepo
@@ -27,7 +27,17 @@ export class UserRepo {
    */
   static async getByEmail(email) {
     try {
-      const data = await User.findOne({ where: { email } });
+      const data = await User.findOne({
+        where: { email },
+        include: [{
+          model: Diary,
+          as: 'diaries',
+          include: [{
+            model: Record,
+            as: 'records',
+          }],
+        }],
+      });
       return data;
     } catch (e) {
       throw new Error(e);
