@@ -1,7 +1,9 @@
 import {
   authorize, Diary, Record, Auth,
 } from '../middlewares';
-import { RecordController, AuthController, DiaryController } from '../controllers';
+import {
+  RecordController, AuthController, DiaryController, UserController,
+} from '../controllers';
 
 const routes = (app) => {
   app.get('/', (req, res) => {
@@ -18,6 +20,8 @@ const routes = (app) => {
   app.post('/api/v1/diaries/:diaryId/records', authorize, Record.validateCreate, RecordController.createRecord);
   app.get('/api/v1/diaries/:diaryId/records', authorize, RecordController.getRecords);
   app.get('/api/v1/diaries/:diaryId/records/:recordId', authorize, RecordController.getRecord);
+
+  app.get('/api/v1/users/:email', authorize, UserController.getUserProfile);
 };
 
 export default routes;

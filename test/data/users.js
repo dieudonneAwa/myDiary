@@ -6,8 +6,14 @@ export const data = {
     password: 'password',
   },
   user2: {
-    id: 1,
+    id: 2,
     name: 'user2 name',
+    password: 'password',
+  },
+  user3: {
+    id: 3,
+    name: 'user3 name',
+    email: 'user3@gmail.com',
     password: 'password',
   },
 };

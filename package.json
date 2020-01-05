@@ -38,6 +38,7 @@
     "nyc": "^15.0.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.7.0",
     "@babel/runtime": "^7.7.7",
     "bcrypt": "*",
     "bcryptjs": "^2.4.3",
