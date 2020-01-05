@@ -1,4 +1,6 @@
-import { authorize, Diary, Record, Auth } from '../middlewares';
+import {
+  authorize, Diary, Record, Auth,
+} from '../middlewares';
 import { RecordController, AuthController, DiaryController } from '../controllers';
 
 const routes = (app) => {

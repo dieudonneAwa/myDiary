@@ -1,4 +1,4 @@
-import RecordRepo from '../repositories';
+import { RecordRepo } from '../repositories';
 
 export class RecordController {
   static async createRecord({ body, params }, res, next) {
