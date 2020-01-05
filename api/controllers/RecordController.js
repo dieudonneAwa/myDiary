@@ -1,6 +1,6 @@
-import RecordRepo from '../repositories/RecordRepo';
+import { RecordRepo } from '../repositories';
 
-class RecordController {
+export class RecordController {
   static async createRecord({ body, params }, res, next) {
     try {
       const { title, text, location } = body;
@@ -39,5 +39,3 @@ class RecordController {
     }
   }
 }
-
-export default RecordController;

@@ -1,6 +1,6 @@
 import { DiaryRepo } from '../repositories';
 
-class DiaryController {
+export class DiaryController {
   static async creatDiary({ body, user }, res, next) {
     try {
       const { name, description } = body;
@@ -32,5 +32,3 @@ class DiaryController {
     }
   }
 }
-
-export default DiaryController;

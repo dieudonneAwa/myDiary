@@ -1,4 +1,4 @@
-class Diary {
+export class Diary {
   static validateCreate({ body }, res, next) {
     const { name } = body;
     if (!name) {
@@ -7,5 +7,3 @@ class Diary {
     return next();
   }
 }
-
-export default Diary;

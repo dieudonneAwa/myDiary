@@ -1,8 +1,7 @@
 import { UserRepo } from '../repositories';
-import { createToken } from '../modules/jwt';
-import { hash, unHash } from '../modules/bcrypt';
+import { createToken, hash, unHash } from '../modules';
 
-class AuthController {
+export class AuthController {
   static async signUp({ body }, res, next) {
     try {
       const { name, email, password } = body;
@@ -37,5 +36,3 @@ class AuthController {
     }
   }
 }
-
-export default AuthController;

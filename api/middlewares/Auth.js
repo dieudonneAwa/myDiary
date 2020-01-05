@@ -2,7 +2,7 @@ import { UserRepo } from '../repositories';
 
 const validator = require('validator');
 
-class Auth {
+export class Auth {
   static async validateSignUp(req, res, next) {
     try {
       const { name, email, password } = req.body;
@@ -28,5 +28,3 @@ class Auth {
     }
   }
 }
-
-export default Auth;

@@ -1,7 +1,7 @@
-import { verifyToken } from '../modules/jwt';
+import { verifyToken } from '../modules';
 import { UserRepo } from '../repositories';
 
-export default async (req, res, next) => {
+export const authorize = async (req, res, next) => {
   const rawToken = req.headers.authorization
     || req.headers['x-access-token']
     || req.body.token

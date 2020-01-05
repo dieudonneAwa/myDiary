@@ -5,7 +5,7 @@ const { User } = models;
 /**
  * @class UserRepo
  */
-class UserRepo {
+export class UserRepo {
   /**
    *
    * @param {object} user
@@ -34,5 +34,3 @@ class UserRepo {
     }
   }
 }
-
-export default UserRepo;

@@ -1,10 +1,7 @@
-import Auth from '../middlewares/Auth';
-import AuthController from '../controllers/AuthController';
-import DiaryController from '../controllers/DiaryController';
-import authorize from '../middlewares/authorize';
-import Diary from '../middlewares/Diary';
-import Record from '../middlewares/Record';
-import RecordController from '../controllers/RecordController';
+import {
+  authorize, Diary, Record, Auth,
+} from '../middlewares';
+import { RecordController, AuthController, DiaryController } from '../controllers';
 
 const routes = (app) => {
   app.get('/', (req, res) => {

@@ -13,6 +13,8 @@
     "build": "rm -rf build && mkdir build && babel api --out-dir build && npm run db:migrate",
     "dev": "nodemon --exec babel-node api/index.js",
     "pretest": "cross-env NODE_ENV=test npm run db:migrate",
+    "coverage": "cross-env NODE_ENV=test nyc report --reporter=lcov --reporter=text-lcov | coveralls",
+    "coveralls": "npm run coverage && cat coverage/lcov.info | coveralls",
     "test": "cross-env NODE_ENV=test nyc mocha --no-timeout --require @babel/register ./test/*.test.js --exit || true"
   },
   "devDependencies": {
