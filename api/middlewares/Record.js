@@ -1,6 +1,6 @@
 import { DiaryRepo } from '../repositories';
 
-class Record {
+export class Record {
   static async validateCreate(req, res, next) {
     try {
       const { title, text } = req.body;
@@ -20,5 +20,3 @@ class Record {
     }
   }
 }
-
-export default Record;

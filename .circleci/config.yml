@@ -1,9 +1,3 @@
-workflows:
-  version: 2.1
-  my-workflow:
-    jobs:
-      - run-tests:
-          context: myDiary-env
 version: 2.1
 orbs:
   coveralls: coveralls/coveralls@1.0.4

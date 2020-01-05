@@ -2,7 +2,7 @@ import models from '../database/models';
 
 const { Diary, Record } = models;
 
-class DiaryRepo {
+export class DiaryRepo {
   static async create({ name, description, userId }) {
     try {
       const data = await Diary.create({ name, description, userId });
@@ -54,5 +54,3 @@ class DiaryRepo {
     }
   }
 }
-
-export default DiaryRepo;

@@ -2,7 +2,7 @@ import models from '../database/models';
 
 const { Record, Diary } = models;
 
-class RecordRepo {
+export class RecordRepo {
   static async create({
     title, text, location, diaryId,
   }) {
@@ -50,5 +50,3 @@ class RecordRepo {
     }
   }
 }
-
-export default RecordRepo;
