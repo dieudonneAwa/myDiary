@@ -11,9 +11,13 @@ export class UserRepo {
    * @param {object} user
    * @returns {object} returns a user object
    */
-  static async createUser({ name, email, password }) {
+  static async createUser({
+    name, email, password, imgUrl,
+  }) {
     try {
-      const data = await User.create({ name, email, password });
+      const data = await User.create({
+        name, email, password, imgUrl,
+      });
       return data;
     } catch (e) {
       throw new Error(e);

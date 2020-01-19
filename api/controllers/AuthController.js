@@ -4,14 +4,26 @@ import { createToken, hash, unHash } from '../modules';
 export class AuthController {
   static async signUp({ body }, res, next) {
     try {
-      const { name, email, password } = body;
+      const {
+        name, email, password, imgUrl,
+      } = body;
       const hashedPasswd = await hash(password);
-      const user = await UserRepo.createUser({ name, email, password: hashedPasswd });
+      const user = await UserRepo.createUser({
+        name, email, password: hashedPasswd, imgUrl,
+      });
       const { dataValues } = user;
       const { id } = dataValues;
       const token = createToken(dataValues);
       return res.status(201).send(
-        { status: 'success', data: { user: { id, name, email }, token } },
+        {
+          status: 'success',
+          data: {
+            user: {
+              id, name, email, imgUrl,
+            },
+            token,
+          },
+        },
       );
     } catch (e) {
       return next(new Error(e));
@@ -26,8 +38,16 @@ export class AuthController {
         const { dataValues } = user;
         const token = createToken(dataValues);
         if (unHash(password, dataValues.password)) {
-          const { id, name } = dataValues;
-          return res.status(200).send({ status: 'success', data: { user: { id, email, name }, token } });
+          const { id, name, imgUrl } = dataValues;
+          return res.status(200).send({
+            status: 'success',
+            data: {
+              user: {
+                id, email, name, imgUrl,
+              },
+              token,
+            },
+          });
         }
       }
       return res.status(400).send({ status: 'error', error: 'Wrong email/password combination' });
